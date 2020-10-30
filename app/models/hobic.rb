@@ -1,0 +1,2 @@
+class Hobic < ApplicationRecord
+end
