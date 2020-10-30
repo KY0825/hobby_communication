@@ -13,6 +13,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :first_name_kana,    null: false
       t.integer :category
       t.integer :genre
+      t.references :hobic,          foreign_key: true
+
 
 
 
