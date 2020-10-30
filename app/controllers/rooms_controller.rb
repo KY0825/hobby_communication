@@ -1,2 +1,2 @@
-class RoomController < ApplicationController
+class RoomsController < ApplicationController
 end

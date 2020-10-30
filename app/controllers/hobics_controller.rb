@@ -1,4 +1,4 @@
-class HobicController < ApplicationController
+class HobicsController < ApplicationController
   def index
   end
 end
