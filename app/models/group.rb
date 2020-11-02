@@ -5,7 +5,6 @@ class Group < ApplicationRecord
     validates :name
     validates :category_id
     validates :genre_id
-    validates :user
   end
 
   has_one_attached :image
