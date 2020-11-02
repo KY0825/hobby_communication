@@ -1,0 +1,29 @@
+<div class="chat-header">
+  <div class="chat-left-header">
+    <div class="chat_title">
+      <%= @room.name %>
+    </div>
+  </div>
+  <%# ルーム作成者にのみ表示 ルーム編集がめんへ%>
+  <div class="chat-right-header">
+    <div class="chat_header-button">
+      <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
+    </div>
+  </div>
+  <%# //ルーム作成者にのみ表示 %>
+</div>
+
+<div class="chats">
+  <%= render partial: 'chat', collection: @chats %>
+</div>
+
+<%= form_with model: [@room, @chat], html: {class: "chat-form"}, local: true do |f| %>
+  <div class="chat-form-input">
+    <%= f.text_field :content, class: 'form-chat', placeholder: 'メッセージを入力する' %>
+    <label class="chat-image">
+      <span class="chat-image-file">画像</span>
+      <%= f.file_field :image, class: 'hidden' %>
+    </label>
+  </div>
+  <%= f.submit '送信', class: 'chat-submit' %>
+<% end %>

@@ -1,0 +1,20 @@
+<div class="message">
+  <div class="upper-message">
+    <div class="chat-user">
+    <!-- 投稿したユーザー名情報を出力する -->
+      <%= chat.user.name%>
+
+    </div>
+    <div class="chat-date">
+    <!-- 投稿した時刻を出力する -->
+      <%= chat.created_at %>
+    </div>
+  </div>
+  <div class="lower-chat">
+    <div class="chat-content">
+    <!-- 投稿したメッセージ内容を記述する -->
+      <%= chat.content%>
+    </div>
+    <%= image_tag message.image.variant(resize:'500x500'), class: 'chat-image' if message.image.attached?%>
+  </div>
+</div>

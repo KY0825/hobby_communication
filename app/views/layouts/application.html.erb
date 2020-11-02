@@ -17,23 +17,30 @@
           <div class="nav__left">
             <%= link_to "HOBIC", root_path %>
           </div>
-          <%# ログインしているときは以下を表示するようにしましょう %>
           <% if user_signed_in? %>
             <div class="nav__right">
+              <%= link_to "#{user.name} さん", root_path,class: :nav__logout %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: :nav__logout %>
             </div>
           <% else %>
-            <%# // ログインしているときは上記を表示するようにしましょう %>
-            <%# ログインしていないときは以下を表示するようにしましょう %>
             <div class="nav__right">
               <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
             </div>
           <% end %>
-            <%# // ログインしていないときは上記を表示するようにしましょう %>
-        </div>
       </div>
     </header>
+    <%# if user_signed_in? %>
+    <div class="menu">
+      <div class="menu__var">
+        <%= link_to "マイページ", root_path, class: :menu__btn %>
+        <%= link_to "フレンド一覧", root_path, class: :menu__btn %>
+        <%= link_to "グループ一覧", root_path, class: :menu__btn %>
+        <%= link_to "つぶやき一覧", root_path, class: :menu__btn %>
+        <%= link_to "日記一覧", root_path, class: :menu__btn %>
+      </div class="menu__var">
+    </div>
+    <%# end %>
     <%= yield %>
     <footer class="footer">
       <p class="copyright">Copyright © HOBIC All rights reserved.</p>
